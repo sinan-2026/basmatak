@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بصمتك - منصة تجارب اجتماعية عراقية</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<!-- FontAwesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+navyBg: '#0b0f19',
+surfaceDark: '#161b2e',
+surfaceCard: '#1f2942',
+accentPurple: '#8b5cf6',
+accentPurpleHover: '#7c3aed',
+goldHighlight: '#fbbf24',
+goldHover: '#f59e0b'
+},
+fontFamily: {
+cairo: ['Cairo', 'sans-serif'],
+tajawal: ['Tajawal', 'sans-serif']
+}
+}
+}
+}
+</script>
+
+<style>
+body {
+font-family: 'Cairo', 'Tajawal', sans-serif;
+background-color: #0b0f19;
+color: #f3f4f6;
+overflow-x: hidden;
+}
+
+/* Custom Glassmorphism */
+.glass-card {
+background: rgba(22, 27, 46, 0.75);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.glass-card-gold {
+background: rgba(22, 27, 46, 0.85);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border: 1px solid rgba(251, 191, 36, 0.3);
+}
+
+/* Gold Gradient Text */
+.gold-text-gradient {
+background: linear-gradient(135deg, #fff3c4 0%, #fbbf24 50%, #d97706 100%);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+/* Purple Glow Effect */
+.purple-glow {
+box-shadow: 0 0 25px rgba(139, 92, 246, 0.35);
+}
+
+.gold-glow {
+box-shadow: 0 0 25px rgba(251, 191, 36, 0.25);
+}
+
+/* Smooth Custom Progress Bar */
+.progress-fill {
+transition: width 0.4s ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+width: 8px;
+}
+::-webkit-scrollbar-track {
+background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+background: #1f2942;
+border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: #8b5cf6;
+}
+</style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-accentPurple selection:text-white">
+
+<!-- Background Decorative Lighting -->
+<div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-accentPurple/10 blur-[120px] pointer-events-none -z-10 rounded-full"></div>
+<div class="fixed bottom-0 left-0 w-80 h-80 bg-goldHighlight/5 blur-[100px] pointer-events-none -z-10 rounded-full"></div>
+
+<!-- Header / Branding -->
+<header class="w-full border-b border-white/10 glass-card sticky top-0 z-50">
+<div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-accentPurple to-purple-900 flex items-center justify-center text-goldHighlight font-black text-xl shadow-lg border border-goldHighlight/30">
+ب
+</div>
+<div>
+<h1 class="text-xl font-black tracking-wide text-white flex items-center gap-2">
+بصمتك
+<span class="text-xs font-normal px-2 py-0.5 rounded-full bg-goldHighlight/10 border border-goldHighlight/30 text-goldHighlight">العراق</span>
+</h1>
+</div>
+</div>
+
+<div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surfaceCard/80 border border-white/10 text-xs text-gray-300">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+<span>SINAN AL-SULTANI ✦ منصة تجارب اجتماعية</span>
+</div>
+</div>
+</header>
+
+<!-- Main Content Area Container -->
+<main class="flex-grow max-w-4xl w-full mx-auto px-4 py-8 flex flex-col justify-center">
+
+<!-- STEP 1: Hero & Test Selection -->
+<section id="selectionSection" class="space-y-8 animate-fade-in">
+<!-- Hero Banner -->
+<div class="text-center space-y-4 py-4">
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accentPurple/10 border border-accentPurple/30 text-accentPurple text-sm font-semibold mb-2">
+<i class="fa-solid font-sparkles text-goldHighlight"></i>
+تجارب واختبارات شخصية بصغة عراقية
+</div>
+<h2 class="text-3xl sm:text-5xl font-extrabold text-white leading-tight">
+اكتشف <span class="gold-text-gradient">بصمتك</span> الحقيقية بين أصدقائك!
+</h2>
+<p class="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+اختبارات تحليل شخصية تفاعلية مصممة بطابع عراقي اجتماعي دقيق وممتع. اختر الاختبار وأضف اسمك لتبدأ التجربة!
+</p>
+</div>
+
+<!-- Name Input Field -->
+<div class="glass-card-gold p-6 rounded-2xl max-w-lg mx-auto space-y-3 shadow-2xl">
+<label for="userNameInput" class="block text-sm font-bold text-goldHighlight flex items-center gap-2">
+<i class="fa-solid fa-user-tag"></i>
+أدخل اسمك أو لقبك قبل البدء:
+</label>
+<input type="text" id="userNameInput" placeholder="مثال: علي البغدادي / أمير"
+class="w-full bg-navyBg/80 border border-white/15 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-goldHighlight transition">
+<p id="nameError" class="text-red-400 text-xs hidden flex items-center gap-1">
+<i class="fa-solid fa-circle-exclamation"></i> يرجى كتابة اسمك أولاً للانتقال للاختبار
+</p>
+</div>
+
+<!-- Test Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+<!-- Test 1 Card -->
+<div onclick="selectTest(1)" class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-accentPurple transition cursor-pointer group hover:-translate-y-1 duration-300">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-xl bg-purple-900/50 border border-accentPurple/30 flex items-center justify-center text-accentPurple text-2xl group-hover:bg-accentPurple group-hover:text-white transition">
+<i class="fa-solid fa-comments"></i>
+</div>
+<div>
+<span class="text-xs text-goldHighlight font-bold">الاختبار الأول</span>
+<h3 class="text-xl font-bold text-white mt-1 group-hover:text-goldHighlight transition">منو إنت بالگعدة العراقية؟</h3>
+<p class="text-gray-400 text-sm mt-2 leading-relaxed">7 أسئلة كوميدية ودقيقة تكشف دورك الحقيقي وطبيعتك لما تتجمعون وي الربع.</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 group-hover:text-white">
+<span>7 أسئلة • تفاعلي</span>
+<span class="font-bold flex items-center gap-1 text-accentPurple group-hover:text-goldHighlight">ابدأ الآن <i class="fa-solid fa-arrow-left"></i></span>
+</div>
+</div>
+
+<!-- Test 2 Card -->
+<div onclick="selectTest(2)" class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-accentPurple transition cursor-pointer group hover:-translate-y-1 duration-300">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-xl bg-blue-900/50 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xl group-hover:bg-blue-600 group-hover:text-white transition">
+<i class="fa-solid fa-brain"></i>
+</div>
+<div>
+<span class="text-xs text-goldHighlight font-bold">الاختبار الثاني</span>
+<h3 class="text-xl font-bold text-white mt-1 group-hover:text-goldHighlight transition">شنو نوع شخصيتك بالتفكير؟</h3>
+<p class="text-gray-400 text-sm mt-2 leading-relaxed">تحليل سريع لنوع عقليتك: هل إنت تحليلي، هادئ، عاطفي، أم صاحب قرار سريع؟</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 group-hover:text-white">
+<span>5 أسئلة • منطقي</span>
+<span class="font-bold flex items-center gap-1 text-blue-400 group-hover:text-goldHighlight">ابدأ الآن <i class="fa-solid fa-arrow-left"></i></span>
+</div>
+</div>
+
+<!-- Test 3 Card -->
+<div onclick="selectTest(3)" class="glass-card rounded-2xl p-6 flex flex-col justify-between hover:border-accentPurple transition cursor-pointer group hover:-translate-y-1 duration-300">
+<div class="space-y-4">
+<div class="w-12 h-12 rounded-xl bg-emerald-900/50 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl group-hover:bg-emerald-600 group-hover:text-white transition">
+<i class="fa-solid fa-chart-line"></i>
+</div>
+<div>
+<span class="text-xs text-goldHighlight font-bold">الاختبار الثالث</span>
+<h3 class="text-xl font-bold text-white mt-1 group-hover:text-goldHighlight transition">هل أنت صاحب أفكار ومشاريع؟</h3>
+<p class="text-gray-400 text-sm mt-2 leading-relaxed">مقياس الحس الريادي والتجاري: هل عندك عقلية ريادية تقدر تبني مشروع؟</p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 group-hover:text-white">
+<span>5 أسئلة • ريادي</span>
+<span class="font-bold flex items-center gap-1 text-emerald-400 group-hover:text-goldHighlight">ابدأ الآن <i class="fa-solid fa-arrow-left"></i></span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- STEP 2: Interactive Quiz Player Container -->
+<section id="quizSection" class="hidden space-y-6 max-w-2xl mx-auto w-full">
+<!-- Quiz Top Navigation / Info -->
+<div class="glass-card p-4 rounded-2xl flex items-center justify-between border-b border-white/10">
+<button onclick="exitQuiz()" class="text-gray-400 hover:text-white text-sm flex items-center gap-2 transition">
+<i class="fa-solid fa-xmark text-lg"></i>
+<span>إلغاء</span>
+</button>
+<span id="quizTitleDisplay" class="font-bold text-goldHighlight text-sm sm:text-base">عنوان الاختبار</span>
+<span id="questionCounter" class="text-xs text-gray-400 bg-navyBg px-3 py-1 rounded-full border border-white/10">سؤال 1 من 7</span>
+</div>
+
+<!-- Progress Bar -->
+<div class="w-full bg-surfaceDark rounded-full h-2.5 overflow-hidden border border-white/5">
+<div id="progressBar" class="bg-gradient-to-r from-accentPurple to-goldHighlight h-full progress-fill" style="width: 0%;"></div>
+</div>
+
+<!-- Question Card -->
+<div class="glass-card p-6 sm:p-8 rounded-3xl space-y-6 shadow-2xl relative overflow-hidden">
+<div class="space-y-2">
+<span id="questionCategory" class="text-xs font-bold text-accentPurple uppercase tracking-wider">سؤال تفاعلي</span>
+<h3 id="questionText" class="text-xl sm:text-2xl font-black text-white leading-relaxed">
+نص السؤال يظهر هنا...
+</h3>
+</div>
+
+<!-- Answers Options Container -->
+<div id="optionsContainer" class="space-y-3 pt-2">
+<!-- Options injected dynamically via JS -->
+</div>
+</div>
+</section>
+
+<!-- STEP 3: Results & Story Card Generator -->
+<section id="resultSection" class="hidden space-y-8 max-w-2xl mx-auto w-full">
+<div class="glass-card-gold p-8 rounded-3xl text-center space-y-6 shadow-2xl relative overflow-hidden">
+<!-- Decorative Icon Header -->
+<div class="w-20 h-20 rounded-2xl bg-gradient-to-tr from-goldHighlight to-amber-600 flex items-center justify-center text-navyBg text-4xl mx-auto shadow-lg gold-glow">
+<i class="fa-solid fa-award"></i>
+</div>
+
+<div class="space-y-2">
+<p class="text-sm text-gray-400">النتيجة الرسمية للاختبار باسم:</p>
+<h2 id="resultUserName" class="text-2xl sm:text-3xl font-extrabold text-white">اسم المستخدم</h2>
+</div>
+
+<div class="p-6 rounded-2xl bg-navyBg/90 border border-goldHighlight/30 space-y-3">
+<span class="text-xs text-goldHighlight font-bold uppercase tracking-wider">لقبك وحقيقتك هي</span>
+<h3 id="resultBadge" class="text-2xl sm:text-4xl font-black gold-text-gradient">لقب النتيجة</h3>
+<p id="resultDescription" class="text-gray-300 text-sm sm:text-base leading-relaxed pt-2">
+وصف النتيجة يتطابق مع الإجابات...
+</p>
+</div>
+
+<!-- Action Buttons -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+<button onclick="generateStoryCard()" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-goldHighlight to-amber-500 hover:from-amber-400 hover:to-goldHighlight text-navyBg font-black flex items-center justify-center gap-2 shadow-lg transition transform active:scale-95">
+<i class="fa-solid fa-download text-lg"></i>
+<span>حفظ كارت الستوري (PNG)</span>
+</button>
+
+<button onclick="shareOnWhatsApp()" class="w-full py-4 px-6 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold flex items-center justify-center gap-2 shadow-lg transition transform active:scale-95">
+<i class="fa-brands fa-whatsapp text-xl"></i>
+<span>مشاركة النتيجة بالواتساب</span>
+</button>
+</div>
+
+<div class="pt-2">
+<button onclick="restartQuiz()" class="text-gray-400 hover:text-white text-sm font-semibold underline underline-offset-4 transition">
+إعادة الاختبار أو تجربة اختبار آخر
+</button>
+</div>
+</div>
+</section>
+
+<!-- STEP 4: Developer Showcase Section (Sinan Al-Sultani) -->
+<section class="mt-16 glass-card p-8 rounded-3xl border border-accentPurple/30 space-y-8 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-accentPurple/10 rounded-full blur-2xl pointer-events-none"></div>
+
+<div class="flex flex-col md:flex-row items-center gap-6 text-center md:text-right">
+<div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-accentPurple via-purple-700 to-navyBg flex items-center justify-center text-goldHighlight text-4xl font-black border-2 border-goldHighlight/40 shadow-xl shrink-0">
+S
+</div>
+<div class="space-y-2">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-goldHighlight/10 border border-goldHighlight/30 text-goldHighlight text-xs font-bold">
+<i class="fa-solid fa-code"></i> مطور ومصمم التطبيق
+</div>
+<h3 class="text-2xl font-black text-white">سنان السلطاني (Sinan Al-Sultani)</h3>
+<p class="text-gray-300 text-sm leading-relaxed max-w-2xl">
+مطور مواقع وتطبيقات ويب متكاملة (Full-Stack Web Developer) متصل بتجربة المستخدم الحديثة (UI/UX). أبتكر حلولاً برمجية وتفاعلية أنيقة تلائم احتياجات الأفراد والشركات.
+</p>
+</div>
+</div>
+
+<!-- Services Badges -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+<div class="p-4 rounded-xl bg-surfaceDark/80 border border-white/5 text-center space-y-1">
+<i class="fa-solid fa-laptop-code text-goldHighlight text-xl"></i>
+<h4 class="font-bold text-white text-sm">تصميم وتطوير المواقع</h4>
+<p class="text-xs text-gray-400">واجهات جذابة وسريعة التجاوب</p>
+</div>
+<div class="p-4 rounded-xl bg-surfaceDark/80 border border-white/5 text-center space-y-1">
+<i class="fa-solid fa-mobile-screen-button text-accentPurple text-xl"></i>
+<h4 class="font-bold text-white text-sm">برمجة تطبيقات الويب</h4>
+<p class="text-xs text-gray-400">أنظمة تفاعلية مخصصة</p>
+</div>
+<div class="p-4 rounded-xl bg-surfaceDark/80 border border-white/5 text-center space-y-1">
+<i class="fa-solid fa-cubes text-emerald-400 text-xl"></i>
+<h4 class="font-bold text-white text-sm">أنظمة برمجية خاصة</h4>
+<p class="text-xs text-gray-400">حلول متكاملة وحسب الطلب</p>
+</div>
+</div>
+
+<!-- Direct Contact CTA -->
+<div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10">
+<span class="text-sm text-gray-300 font-medium">تريد موقع أو تطبيق خاص بك بنفس هذا الرقي؟</span>
+<a href="https://wa.me/9647759099295?text=%DD9%85%D8%B1%D8%AD%D8%A8%D8%A7%20%D8%B3%D9%86%D8%A7%D9%86%D9%80%20%D8%B4%D9%81%D8%AA%20%D8%AA%D8%B7%D8%A8%D9%8A%D9%82%20%D8%A8%D8%B5%D9%85%D8%AA%D9%83%20%D9%88%D8%B9%D8%AC%D8%A8%D9%86%D9%8A%20%D8%B4%D8%BA%D9%84%D9%83%D9%80%20%D8%AD%D8%A7%D8%A8%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86..."
+target="_blank"
+class="w-full sm:w-auto px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold flex items-center justify-center gap-2 shadow-lg transition">
+<i class="fa-brands fa-whatsapp text-lg"></i>
+<span>تواصل مباشر عبر الواتساب</span>
+</a>
+</div>
+</section>
+
+</main>
+
+<!-- Hidden Canvas for Instagram Story Download (1080x1920) -->
+<canvas id="storyCanvas" width="1080" height="1920" class="hidden"></canvas>
+
+<!-- Footer -->
+<footer class="w-full py-6 text-center text-xs text-gray-500 border-t border-white/5 mt-12">
+<p>تم التصميم والبرمجة بواسطة <span class="text-goldHighlight font-bold">Sinan Al-Sultani</span> © 2026</p>
+</footer>
+
+<!-- Application State & Interactive Logic JS -->
+<script>
+// State variables
+let currentUserName = "";
+let currentTestId = 1;
+let currentQuestionIndex = 0;
+let userScores = {};
+let finalResultObject = null;
+
+// Tests Database
+const testsData = {
+1: {
+title: "منو إنت بالگعدة العراقية؟",
+questions: [
+{
+q: "أول ما توصل للگعدة وربعك مجتمعين، شنو أول تصرف تسويه؟",
+options: [
+{ text: "أجيب صينية الشاي وأصُب للشباب وأستلم السالفة.", type: "talker" },
+{ text: "أگعد بهدوء وأسمع سوالفهم واستنتج منو الجذاب بالموضوع.", type: "detective" },
+{ text: "أحط التلفون بيدي وأگولهم والله بالطريق جان عندي شغله (وآني بعدني ببيتنا).", type: "late" },
+{ text: "أستلم المنقلة والمشاوي لأن المطبخ والأكل ملعبي.", type: "bbq" }
+]
+},
+{
+q: "إذا صار نقاش حاد و'حمت' السالفة بالگعدة، شنو دورك؟",
+options: [
+{ text: "أضيف بهارات على السالفة وأخلي الكل يضحك.", type: "talker" },
+{ text: "أسأل أسئلة دقيقة وأكشف تناقضات الكلام.", type: "detective" },
+{ text: "أغير الموضوع وأگول شوكت يوصل الأكل؟", type: "late" },
+{ text: "أقوم أنظم الكعدات والأكل وأحل المشكلة بوجبة دسمة.", type: "bbq" }
+]
+},
+{
+q: "منو المسؤول عن طلب العشاء أو الشاي والترتيب؟",
+options: [
+{ text: "آني أقترح أحسن مطعم وأقنع الكل بطلبي.", type: "talker" },
+{ text: "أحسب الحسابات والمبالغ وأشوف منو ما دفع!", type: "detective" },
+{ text: "أكولهم طلبي وي طلبكم، أي شيء آكل.", type: "late" },
+{ text: "أني أعزمكم أو آني أستلم بيدي الشوي والتنظيم.", type: "bbq" }
+]
+},
+{
+q: "شنو العبارة اللي تكررها هواية بالگعدة؟",
+options: [
+{ text: "'اسمع هاي السالفة القوية!'", type: "talker" },
+{ text: "'لحظة.. كلامك هذا مو منطقي شلون صارت؟'", type: "detective" },
+{ text: "'والله الطرق كيد ازدحام اليوم!'", type: "late" },
+{ text: "'الجمر جاهز، منو يريد الشاي خفيف؟'", type: "bbq" }
+]
+},
+{
+q: "إذا طلعتم سفرة أو كشتة للبر، شنو مستحيل تنساه؟",
+options: [
+{ text: "السماعة والسوالف والضحك.", type: "talker" },
+{ text: "الملاحظة والتدقيق بكل ترتيبات السفرة.", type: "detective" },
+{ text: "الوسادة لأن رح أنام بالطريق.", type: "late" },
+{ text: "عدّة المشاوي والشيش والبهارات.", type: "bbq" }
+]
+},
+{
+q: "صديقك يگولك: 'عندي موضوع سر بس لا تكول لأحد':",
+options: [
+{ text: "أسمعه وأسوي مناقشة تحليليلة قوية.", type: "talker" },
+{ text: "أحلل الموضوع وأكتشف الحل فوراً.", type: "detective" },
+{ text: "أنسى السر بعد 5 دقائق.", type: "late" },
+{ text: "أگوله تعال أضيفك على أكلة ونحكي براحتنا.", type: "bbq" }
+]
+},
+{
+q: "أفضل لقب تحبه أصدقائك ينادوك بيه بالگعدة؟",
+options: [
+{ text: "ملك السوالف والجو الحلو.", type: "talker" },
+{ text: "المحقق ومهندس التفاصيل.", type: "detective" },
+{ text: "صاحب الترتيبات المفاجئة.", type: "late" },
+{ text: "أبو المشاوي والكرم والنخوة.", type: "bbq" }
+]
+}
+],
+results: {
+talker: {
+badge: "ملك السوالف والجو 👑",
+desc: "إنت روح الكعدة العادية والمجلس ما يسوى بدونك! عندك كاريزما وطاقة تسولف وتخلي الكل يضحك ويرتاح، وإذا غبت الكعدة تصير ملل."
+},
+detective: {
+badge: "المحقق مال المجموعة 🔍",
+desc: "عندك نظرة ثاقبة وتلاحظ أصغر التفاصيل. محد يقدر يجذب عليك أو يمرر سالفة بدون ما تحقق بملابساتها بذكاء وهدوء."
+},
+late: {
+badge: "اللي يگول بالطريق وهو بعده بالبيت 🚗",
+desc: "شخصيتك عفوية وباردة، دائماً توعد وتأتي بروقان، تحب أجوائك الخاصة وتعيش اللحظة بدون توتر أو استعجال!"
+},
+bbq: {
+badge: "أبو المشاوي والرتب والكرم 🥩",
+desc: "إنت القيادي الميداني صاحب النخوة والكرم! الكعدة بوجودك يعني أكل طيب، ترتيب عالي، ورعاية حقيقية لكل الأصدقاء."
+}
+}
+},
+2: {
+title: "شنو نوع شخصيتك بالتفكير؟",
+questions: [
+{
+q: "عند مواجهة مشكلة غير متوقعة، شنو أول رد فعل لك؟",
+options: [
+{ text: "أحلل السبب خطوة بخطوة بهدوء.", type: "analytic" },
+{ text: "أعتمد على إحساسي والحل العاطفي.", type: "emotional" },
+{ text: "أخذ قرار سريع ومباشر للتنفيذ.", type: "decisive" }
+]
+},
+{
+q: "كيف تتخذ قراراتك المهمة بالحياة؟",
+options: [
+{ text: "بالورقة والقلم والدراسة الحسابية.", type: "analytic" },
+{ text: "استشارة المقربين والتأثر بالراحة النفسية.", type: "emotional" },
+{ text: "بالحسم السريع والتجربة المباشرة.", type: "decisive" }
+]
+},
+{
+q: "ما هي القوة الأكبر في عقول المقربين منك؟",
+options: [
+{ text: "الذكاء والمنطق العالي.", type: "analytic" },
+{ text: "الطيب والتعاطف الكبير.", type: "emotional" },
+{ text: "الشجاعة والقدرة على القيادة.", type: "decisive" }
+]
+},
+{
+q: "عند التخطيط لمستقبلك، تركز أكثر على:",
+options: [
+{ text: "البيانات والاستقرار والخطط البديلة.", type: "analytic" },
+{ text: "الشغف والسعادة وتوافق العلاقات.", type: "emotional" },
+{ text: "الفرص السريعة والنجاح والسيادة.", type: "decisive" }
+]
+},
+{
+q: "في النقاشات، يهمك أكثر:",
+options: [
+{ text: "إثبات الحقيقة والأرقام.", type: "analytic" },
+{ text: "عدم إيذاء مشاعر الآخرين.", type: "emotional" },
+{ text: "الوصول لنتيجة وحسم الموضوع.", type: "decisive" }
+]
+}
+],
+results: {
+analytic: {
+badge: "عقلية محللة ومنطقية 🧠",
+desc: "تفكر بدقة متناهية، لا ترضى بالحلول العشوائية. تعتمد المنطق والحجة القوية وتصل للحلول بأقل الخسائر."
+},
+emotional: {
+badge: "شخصية عاطفية وإنسانية 🌟",
+desc: "تمتلك ذكاءً اجتماعيًا وعاطفيًا عاليًا. تفهم مشاعر الآخرين بسرعة وتفكر بقلبك الطيب الذي يجمع الناس حولك."
+},
+decisive: {
+badge: "قائد حاسم وشارب القرار ⚡",
+desc: "لا تحب إضاعة الوقت. إرادتك قوية وتأخذ المبادرة فوراً وتتحمل مسؤولية نتائج قراراتك بكل شجاعة."
+}
+}
+},
+3: {
+title: "هل أنت صاحب أفكار ومشاريع؟",
+questions: [
+{
+q: "عندما ترى مشكلة في السوق أو الخدمة اليومية، ماذا يخطر ببالك؟",
+options: [
+{ text: "أفكر فوراً بتأسيس تطبيق أو مشروع يحلها ويربح.", type: "entrepreneur" },
+{ text: "أتذمر منها وأتمنى لو أحدهم يصلحها.", type: "employee" }
+]
+},
+{
+q: "كيف تتعامل مع المخاطرة المالية؟",
+options: [
+{ text: "أحسب المخاطرة مستعد للمغامرة من أجل أرباح كبيرة.", type: "entrepreneur" },
+{ text: "أفضل الأمان المالي والدخل الثابت المضمون.", type: "employee" }
+]
+},
+{
+q: "الوقت بالنسبة لك يمثل:",
+options: [
+{ text: "رأس مال وفرص يجب استثمارها لبناء قيمة.", type: "entrepreneur" },
+{ text: "ساعات عمل محددة يجب إنجازها للاستراحة.", type: "employee" }
+]
+},
+{
+q: "إذا حصلت على مبلغ مال مفاجئ، أين تضعه؟",
+options: [
+{ text: "أستثمره في مشروع جديد أو أطوره.", type: "entrepreneur" },
+{ text: "أضعه في الحفظ أو أشتري به مستلزمات رفاهية.", type: "employee" }
+]
+},
+{
+q: "طموحك المهني الأساسي هو:",
+options: [
+{ text: "بناء علامتي التجارية الخاصة وقيادة فريق.", type: "entrepreneur" },
+{ text: "الوصول لمنصب وظيفي مرموق ومستقر.", type: "employee" }
+]
+}
+],
+results: {
+entrepreneur: {
+badge: "رائد أعمال ومبتكر مشاريع 🚀",
+desc: "تمتلك عقلية ريادية استثمارية خالية من الخوف! ترى الفرص حيث يرى الآخرون العقبات، ولديك مقومات النجاح التجاري."
+},
+employee: {
+badge: "منظم ومستقر تشغيلياً 🛡️",
+desc: "تفضل الاستقرار والترتيب والوضوح. تبدع في البيئات المنظمة وتضمن استمرارية الأعمال بأمان ودقة high-level."
+}
+}
+}
+};
+
+// Select Test & Check Name Input
+function selectTest(testId) {
+const nameInput = document.getElementById('userNameInput').value.trim();
+const nameError = document.getElementById('nameError');
+
+if (!nameInput) {
+nameError.classList.remove('hidden');
+document.getElementById('userNameInput').focus();
+return;
+}
+
+nameError.classList.add('hidden');
+currentUserName = nameInput;
+currentTestId = testId;
+currentQuestionIndex = 0;
+userScores = {};
+
+// Hide selection, show quiz
+document.getElementById('selectionSection').classList.add('hidden');
+document.getElementById('quizSection').classList.remove('hidden');
+
+// Render First Question
+renderQuestion();
+}
+
+// Render Current Question
+function renderQuestion() {
+const test = testsData[currentTestId];
+const qData = test.questions[currentQuestionIndex];
+
+document.getElementById('quizTitleDisplay').innerText = test.title;
+document.getElementById('questionCounter').innerText = `سؤال ${currentQuestionIndex + 1} من ${test.questions.length}`;
+
+// Progress percentage
+const progressPct = ((currentQuestionIndex) / test.questions.length) * 100;
+document.getElementById('progressBar').style.width = `${progressPct}%`;
+
+document.getElementById('questionCategory').innerText = `اختبار بصمتك • سؤال ${currentQuestionIndex + 1}`;
+document.getElementById('questionText').innerText = qData.q;
+
+const optionsContainer = document.getElementById('optionsContainer');
+optionsContainer.innerHTML = '';
+
+qData.options.forEach((opt) => {
+const btn = document.createElement('button');
+btn.className = "w-full text-right p-4 rounded-xl bg-navyBg/90 hover:bg-accentPurple/20 border border-white/10 hover:border-accentPurple text-white font-medium transition flex items-center justify-between group transform active:scale-98";
+btn.innerHTML = `
+<span class="text-sm sm:text-base group-hover:text-goldHighlight transition">${opt.text}</span>
+<i class="fa-solid fa-chevron-left text-xs text-gray-500 group-hover:text-goldHighlight transition"></i>
+`;
+btn.onclick = () => handleAnswer(opt.type);
+optionsContainer.appendChild(btn);
+});
+}
+
+// Handle User Option Click
+function handleAnswer(type) {
+userScores[type] = (userScores[type] || 0) + 1;
+currentQuestionIndex++;
+
+const test = testsData[currentTestId];
+if (currentQuestionIndex < test.questions.length) {
+renderQuestion();
+} else {
+calculateAndShowResult();
+}
+}
+
+// Calculate Result and Display
+function calculateAndShowResult() {
+const test = testsData[currentTestId];
+let topType = null;
+let maxCount = -1;
+
+for (const type in userScores) {
+if (userScores[type] > maxCount) {
+maxCount = userScores[type];
+topType = type;
+}
+}
+
+// Fallback if no score
+if (!topType) {
+topType = Object.keys(test.results)[0];
+}
+
+const resultInfo = test.results[topType];
+finalResultObject = {
+userName: currentUserName,
+badge: resultInfo.badge,
+desc: resultInfo.desc,
+testTitle: test.title
+};
+
+// Fill UI
+document.getElementById('resultUserName').innerText = currentUserName;
+document.getElementById('resultBadge').innerText = resultInfo.badge;
+document.getElementById('resultDescription').innerText = resultInfo.desc;
+
+// Hide Quiz, Show Results
+document.getElementById('quizSection').classList.add('hidden');
+document.getElementById('resultSection').classList.remove('hidden');
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Restart Quiz / Back to Selection
+function restartQuiz() {
+document.getElementById('resultSection').classList.add('hidden');
+document.getElementById('quizSection').classList.add('hidden');
+document.getElementById('selectionSection').classList.remove('hidden');
+}
+
+function exitQuiz() {
+restartQuiz();
+}
+
+// Share on WhatsApp
+function shareOnWhatsApp() {
+if (!finalResultObject) return;
+const text = `جربت اختبار "${finalResultObject.testTitle}" على منصة بصمتك! 💡\n\nالنتيجة الخاصة بي (${finalResultObject.userName}):\n✨ ${finalResultObject.badge}\n\nجرب أنت أيضاً واكتشف بصمتك!`;
+const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+window.open(url, '_blank');
+}
+
+// HTML5 Canvas Feature: Generate 1080x1920 Story Card & Trigger Download
+function generateStoryCard() {
+if (!finalResultObject) return;
+
+const canvas = document.getElementById('storyCanvas');
+const ctx = canvas.getContext('2d');
+
+// 1. Background Fill (Luxury Dark Navy & Purple Radial Gradient)
+const bgGradient = ctx.createLinearGradient(0, 0, 1080, 1920);
+bgGradient.addColorStop(0, '#0b0f19');
+bgGradient.addColorStop(0.5, '#161b2e');
+bgGradient.addColorStop(1, '#080b12');
+ctx.fillStyle = bgGradient;
+ctx.fillRect(0, 0, 1080, 1920);
+
+// 2. Decorative Light Orbs
+const orb1 = ctx.createRadialGradient(200, 300, 10, 200, 300, 600);
+orb1.addColorStop(0, 'rgba(139, 92, 246, 0.25)');
+orb1.addColorStop(1, 'transparent');
+ctx.fillStyle = orb1;
+ctx.fillRect(0, 0, 1080, 1920);
+
+const orb2 = ctx.createRadialGradient(880, 1400, 10, 880, 1400, 500);
+orb2.addColorStop(0, 'rgba(251, 191, 36, 0.15)');
+orb2.addColorStop(1, 'transparent');
+ctx.fillStyle = orb2;
+ctx.fillRect(0, 0, 1080, 1920);
+
+// 3. Story Border Frame
+ctx.strokeStyle = 'rgba(251, 191, 36, 0.3)';
+ctx.lineWidth = 12;
+ctx.strokeRect(50, 50, 980, 1820);
+
+// 4. Header / App Logo Branding
+ctx.textAlign = 'center';
+
+// App Name
+ctx.font = '800 70px Cairo, sans-serif';
+ctx.fillStyle = '#fbbf24';
+ctx.fillText('بصمتك ✦ BASMATAK', 540, 220);
+
+ctx.font = '500 36px Cairo, sans-serif';
+ctx.fillStyle = '#9ca3af';
+ctx.fillText('منصة التجارب والتحليلات الاجتماعية', 540, 280);
+
+// Divider Line
+ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+ctx.lineWidth = 2;
+ctx.beginPath();
+ctx.moveTo(200, 330);
+ctx.lineTo(880, 330);
+ctx.stroke();
+
+// 5. Test Category Title
+ctx.font = '700 42px Cairo, sans-serif';
+ctx.fillStyle = '#8b5cf6';
+ctx.fillText(finalResultObject.testTitle, 540, 480);
+
+// 6. Main Result Card Box (Rounded Rect Glass Simulation)
+const cardX = 100;
+const cardY = 560;
+const cardW = 880;
+const cardH = 880;
+const radius = 40;
+
+ctx.save();
+ctx.beginPath();
+ctx.moveTo(cardX + radius, cardY);
+ctx.arcTo(cardX + cardW, cardY, cardX + cardW, cardY + cardH, radius);
+ctx.arcTo(cardX + cardW, cardY + cardH, cardX, cardY + cardH, radius);
+ctx.arcTo(cardX, cardY + cardH, cardX, cardY, radius);
+ctx.arcTo(cardX, cardY, cardX + cardW, cardY, radius);
+ctx.closePath();
+
+ctx.fillStyle = 'rgba(22, 27, 46, 0.9)';
+ctx.fill();
+ctx.strokeStyle = 'rgba(251, 191, 36, 0.4)';
+ctx.lineWidth = 4;
+ctx.stroke();
+ctx.restore();
+
+// User Name
+ctx.font = '600 40px Cairo, sans-serif';
+ctx.fillStyle = '#d1d5db';
+ctx.fillText(`نتيجة المستخدم: ${finalResultObject.userName}`, 540, 680);
+
+// Result Badge
+ctx.font = '900 58px Cairo, sans-serif';
+ctx.fillStyle = '#fbbf24';
+ctx.fillText(finalResultObject.badge, 540, 800);
+
+// Description Text Wrapping Logic
+ctx.font = '500 36px Cairo, sans-serif';
+ctx.fillStyle = '#e5e7eb';
+
+const words = finalResultObject.desc.split(' ');
+let line = '';
+let currentY = 920;
+const maxWidth = 760;
+const lineHeight = 55;
+
+for (let n = 0; n < words.length; n++) {
+let testLine = line + words[n] + ' ';
+let metrics = ctx.measureText(testLine);
+let testWidth = metrics.width;
+if (testWidth > maxWidth && n > 0) {
+ctx.fillText(line, 540, currentY);
+line = words[n] + ' ';
+currentY += lineHeight;
+} else {
+line = testLine;
+}
+}
+ctx.fillText(line, 540, currentY);
+
+// 7. Footer Watermark Signature
+ctx.font = '700 38px Cairo, sans-serif';
+ctx.fillStyle = '#fbbf24';
+ctx.fillText('تصميم وبرمجة: Sinan Al-Sultani', 540, 1620);
+
+ctx.font = '400 30px Cairo, sans-serif';
+ctx.fillStyle = '#6b7280';
+ctx.fillText('WhatsApp: 07759099295 ✦ UI/UX & Web Developer', 540, 1680);
+
+// Download Trigger
+const link = document.createElement('a');
+link.download = `Basmatak-Story-${finalResultObject.userName}.png`;
+link.href = canvas.toDataURL('image/png');
+link.click();
+}
+</script>
+</body>
+</html>
